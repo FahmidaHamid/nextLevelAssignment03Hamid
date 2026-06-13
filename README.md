@@ -11,11 +11,11 @@ In this work, we practice on several core backend skills: creating ER-Diagrams u
 ## Part 02: SQL Queries & Expected Sample Output:
 
 - please check the **QUERY.sql** file.
+- [View SQL Query](./QUERY.sql)
 
 ## Part 03: Interview Prep:
 
 - video link: \_\_\_
-
 
 ## Technology/Services Used:
 
