@@ -92,8 +92,11 @@ FROM
 	bookings b
 	JOIN users u ON b.user_id = u.user_id
 	JOIN matches m ON b.match_id = m.match_id;
+```
 
--- Sample Output:
+### Sample Output:
+
+```text
 | booking_id | full_name       | fixture                            | total_cost |
 | ---------- | --------------- | ---------------------------------- | ---------- |
 | 1          | James Foster    | Juventus vs Roma                   | 150.00     |
@@ -129,7 +132,9 @@ FROM
 | 31         | Jordan Perry    | Liverpool vs Man United            | 108.00     |
 | 32         | George Cox      | AC Milan vs Inter Milan            | 97.00      |
 | 33         | Lucas James     | PSG vs Lille                       | 140.00     |
+```
 
+```sql
 -- Query 05:
 
 SELECT
