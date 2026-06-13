@@ -124,6 +124,166 @@ FROM
 | 31         | Jordan Perry    | Liverpool vs Man United            | 108.00     |
 | 32         | George Cox      | AC Milan vs Inter Milan            | 97.00      |
 | 33         | Lucas James     | PSG vs Lille                       | 140.00     |
+
+-- Query 05:
+
+SELECT
+	u.user_id,
+	u.full_name,
+	b.booking_id
+FROM
+	users u
+	LEFT JOIN bookings b ON u.user_id = b.user_id
+order by
+	u.user_id;
+
+-- Sample Output:
+
+| user_id | full_name         | booking_id |
+| ------- | ----------------- | ---------- |
+| 1       | Jonathan Miller   |            |
+| 2       | Michael Carter    | 20         |
+| 3       | David Reynolds    | 6          |
+| 4       | Christopher Haque |            |
+| 5       | Andrew Thompson   | 12         |
+| 6       | Jason Walker      | 30         |
+| 7       | Ethan Brooks      |            |
+| 8       | Tanvir Ahmed      |            |
+| 9       | Daniel Cooper     | 15         |
+| 10      | Matthew Turner    |            |
+| 11      | Joshua Bennett    | 28         |
+| 12      | James Foster      | 2          |
+| 12      | James Foster      | 1          |
+| 13      | Benjamin Ross     |            |
+| 14      | Alexander Reed    |            |
+| 15      | Samuel Price      | 23         |
+| 16      | Noah Murphy       |            |
+| 17      | Liam Hughes       |            |
+| 18      | Jack Kelly        | 10         |
+| 19      | Oliver Ward       |            |
+| 20      | Henry Cox         |            |
+| 21      | Lucas James       | 33         |
+| 22      | Elijah Scott      |            |
+| 23      | Ahmed Reza        | 17         |
+| 24      | Logan Baker       |            |
+| 25      | Sebastian Adams   |            |
+| 26      | George Hill       |            |
+| 27      | Edward Clark      | 26         |
+| 28      | Thomas Lewis      |            |
+| 29      | Nathan Allen      | 8          |
+| 30      | Caleb Young       |            |
+| 31      | Isaac King        |            |
+| 32      | Aaron Wright      |            |
+| 33      | Tanvir Tareq      | 5          |
+| 33      | Tanvir Tareq      | 3          |
+| 34      | Connor Hall       | 19         |
+| 35      | Adam Carter       |            |
+| 36      | Brian Murphy      |            |
+| 37      | Eric Rogers       |            |
+| 38      | Kyle Morgan       |            |
+| 39      | Jordan Perry      | 31         |
+| 40      | Justin Howard     |            |
+| 41      | Tyler Cox         | 14         |
+| 42      | Brandon Ward      |            |
+| 43      | Kevin Bennett     |            |
+| 44      | Mark Foster       |            |
+| 45      | Paul Reed         |            |
+| 46      | Scott Mitchell    |            |
+| 47      | Sean Brooks       | 4          |
+| 48      | Greg Anderson     |            |
+| 49      | Harry Collins     | 24         |
+| 50      | Owen Stewart      |            |
+| 51      | Evan Morris       |            |
+| 52      | Ian Rogers        | 13         |
+| 53      | Patrick Murphy    | 29         |
+| 54      | Cameron Bell      |            |
+| 55      | Dylan Ward        |            |
+| 56      | Ryan Foster       |            |
+| 57      | Ethan Carter      |            |
+| 58      | Noah Bennett      | 21         |
+| 59      | Liam Brooks       |            |
+| 60      | James Walker      | 16         |
+| 61      | Benjamin Scott    |            |
+| 62      | Lucas Reed        |            |
+| 63      | Henry Adams       |            |
+| 64      | Alexander King    | 9          |
+| 65      | Matthew Hill      |            |
+| 66      | Joshua Allen      | 25         |
+| 67      | Daniel Young      |            |
+| 68      | Jack Lewis        |            |
+| 69      | Samuel Clark      |            |
+| 70      | Elijah Morgan     |            |
+| 71      | Aiden James       | 18         |
+| 72      | Logan Wright      |            |
+| 73      | Sebastian Murphy  |            |
+| 74      | George Cox        | 32         |
+| 75      | Edward Perry      |            |
+| 76      | Thomas Howard     |            |
+| 77      | Nathan Hall       | 11         |
+| 78      | Caleb Cox         |            |
+| 79      | Isaac Ward        |            |
+| 80      | Aaron Bell        | 27         |
+| 81      | Luke Morgan       |            |
+| 82      | Connor Baker      |            |
+| 83      | Adam Rogers       | 22         |
+| 84      | Brian Perry       |            |
+| 85      | Karim Haque       | 7          |
+
+
+-- Query 06:
+
+SELECT
+	*
+from
+	bookings b
+where
+	b.total_cost > (
+		select
+			avg(bookings.total_cost)
+		from
+			bookings
+	);
+
+-- Sample Output:
+
+| booking_id | user_id | match_id | seat_number | payment_status | total_cost |
+| ---------- | ------- | -------- | ----------- | -------------- | ---------- |
+| 1          | 12      | 5        | A-10        | CONFIRMED      | 150.00     |
+| 2          | 12      | 12       | BB-10       | CONFIRMED      | 230.00     |
+| 3          | 33      | 5        | A-11        | CONFIRMED      | 155.00     |
+| 4          | 47      | 18       | B-04        | PENDING        | 120.00     |
+| 5          | 33      | 18       | A-11        | CONFIRMED      | 115.00     |
+| 6          | 3       | 22       |             | FAILED         | 130.00     |
+| 10         | 18      | 33       | E-11        | CONFIRMED      | 115.00     |
+| 13         | 52      | 3        | B-12        | CONFIRMED      | 125.00     |
+| 17         | 23      | 11       | A-14        | CONFIRMED      | 115.00     |
+| 22         | 83      | 14       | C-22        | CONFIRMED      | 118.00     |
+| 24         | 49      | 2        |             | FAILED         | 155.00     |
+| 28         | 11      | 24       | E-05        | CONFIRMED      | 130.00     |
+| 29         | 53      | 12       | A-20        | CONFIRMED      | 125.00     |
+| 33         | 21      | 31       |             | CONFIRMED      | 140.00     |
+
+-- Query 07:
+
+SELECT
+	*
+from
+	matches m
+order by
+	m.base_ticket_price desc
+limit
+	2
+offset
+	1;
+
+-- Sample Output:
+
+| match_id | fixture                      | tournament_category | base_ticket_price | match_status |
+| -------- | ---------------------------- | ------------------- | ----------------- | ------------ |
+| 41       | Real Madrid vs Bayern Munich | Champions League    | 170.00            | SELLING_FAST |
+| 47       | Barcelona vs Bayern Munich   | Champions League    | 165.00            | AVAILABLE    |
+
+
 ```
 
 ## Part 03: Interview Prep:
