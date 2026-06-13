@@ -18,15 +18,15 @@ Questions answered:
 
 - Question 1: What role does a Foreign Key play in the Bookings table, and how does it safeguard against entering a ticket sale for a match that doesn't exist?
 
+- answer: https://www.loom.com/share/3680f44a879d445682a77697c5eca8de
+
 - Question 2: Why are we unable to use an aggregate function like COUNT(booking_id) inside a standard WHERE clause to filter match rows? How does HAVING solve this?
 
-- Question 3: If a Primary Key column guarantees that all row entries are completely unique, why does the database system also explicitly forbid it from containing a NULL value?
+- answer: https://www.loom.com/share/4f5cc6eb7b234cd68dadd8324197a83b
 
 - Question 4: Imagine a newly registered fan who hasn't bought any match tickets yet. If you run a LEFT JOIN linking the Users table (left) to the Bookings table (right), what will the resulting rows look like for that specific fan?
 
-- Question 5: What is the difference between a main query and a subquery? In what scenarios would you choose to use a subquery over a standard JOIN operation?
-
-- video link: \_\_\_
+- answer: https://www.loom.com/share/69d4525858854ca598bf549dd95334b8
 
 ## Technology/Services Used:
 
