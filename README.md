@@ -12,6 +12,17 @@ In this work, we practice on several core backend skills: creating ER-Diagrams u
 
 - [View SQL Query](./QUERY.sql)
 
+```sql
+
+| match_id | fixture                    | base_ticket_price |
+| -------- | -------------------------- | ----------------- |
+| 1        | Real Madrid vs Barcelona   | 150.00            |
+| 3        | Bayern Munich vs PSG       | 130.00            |
+| 47       | Barcelona vs Bayern Munich | 165.00            |
+| 49       | Real Madrid vs PSG         | 175.00            |
+
+```
+
 ## Part 03: Interview Prep:
 
 Questions answered:
