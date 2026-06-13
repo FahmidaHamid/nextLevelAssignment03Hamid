@@ -26,7 +26,7 @@ WHERE
 	tournament_category = 'Champions League'
 	AND match_status = 'AVAILABLE';
 
--- sample outcome:
+-- Sample Outcome:
 -------------------------------------------------------------
 | match_id | fixture                    | base_ticket_price |
 | -------- | -------------------------- | ----------------- |
@@ -35,6 +35,27 @@ WHERE
 | 47       | Barcelona vs Bayern Munich | 165.00            |
 | 49       | Real Madrid vs PSG         | 175.00            |
 -------------------------------------------------------------
+
+-- Query 02
+
+SELECT
+	*
+FROM
+	users
+WHERE
+	full_name ILIKE 'Tanvir%'
+	OR full_name ILIKE '%Haque%';
+
+
+-- Sample Outcome:
+
+| user_id | full_name         | email                      | role           | phone_number   |
+| ------- | ----------------- | -------------------------- | -------------- | -------------- |
+| 4       | Christopher Haque | christopher.haque@mail.com | TICKET_MANAGER | +8801710000004 |
+| 8       | Tanvir Ahmed      | tanvirA@mail.com           | FOOTBALL_FAN   | +8801710000103 |
+| 33      | Tanvir Tareq      | tareqt@mail.com            | FOOTBALL_FAN   | +8801710000128 |
+| 85      | Karim Haque       | karim.haque@mail.com       | FOOTBALL_FAN   | +8801710000180 |
+
 ```
 
 ## Part 03: Interview Prep:
