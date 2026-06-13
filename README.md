@@ -8,13 +8,17 @@ In this work, we practice on several core backend skills: creating ER-Diagrams u
 
 - https://dbdiagram.io/d/hamidNextLevelB7A3Solution-6a2d53299340ecc0658daea6
 
-## Part 2: SQL Queries & Expected Sample Output:
+## Part 02: SQL Queries & Expected Sample Output:
 
-**Query 1:** Retrieve all upcoming football matches belonging to the 'Champions League' where the match status is 'Available'.
+- please check the **QUERY.sql** file.
 
-**Query 2:** Search for all users whose full names start with 'Tanvir' or contain the phrase 'Haque' (case-insensitive).
+## Part 03: Interview Prep:
+
+- video link: \_\_\_
+
 
 ## Technology/Services Used:
 
 1. ER Diagram: https://dbdiagram.io/home
-2. SQL Query: BeeKeepers
+2. SQL Query Writing: BeeKeepers <simple, gui>
+3. ChatGPT helped me with creating the dataset
