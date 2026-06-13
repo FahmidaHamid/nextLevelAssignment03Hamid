@@ -12,10 +12,9 @@ In this work, we practice on several core backend skills: creating ER-Diagrams u
 
 - [**View SQL Query File**](./QUERY.sql)
 
+### Query 01:
+
 ```sql
-
--- Query 01:
-
 SELECT
 	match_id,
 	fixture,
@@ -27,7 +26,7 @@ WHERE
 	AND match_status = 'AVAILABLE';
 ```
 
--- Sample Outcome:
+### Sample Output:
 
 ```text
 -------------------------------------------------------------
@@ -40,9 +39,9 @@ WHERE
 -------------------------------------------------------------
 ```
 
-```sql
--- Query 02
+### Query 02
 
+```sql
 SELECT
 	*
 FROM
@@ -50,20 +49,22 @@ FROM
 WHERE
 	full_name ILIKE 'Tanvir%'
 	OR full_name ILIKE '%Haque%';
+```
 
+### Sample Output:
 
--- Sample Outcome:
-
+```text
 | user_id | full_name         | email                      | role           | phone_number   |
 | ------- | ----------------- | -------------------------- | -------------- | -------------- |
 | 4       | Christopher Haque | christopher.haque@mail.com | TICKET_MANAGER | +8801710000004 |
 | 8       | Tanvir Ahmed      | tanvirA@mail.com           | FOOTBALL_FAN   | +8801710000103 |
 | 33      | Tanvir Tareq      | tareqt@mail.com            | FOOTBALL_FAN   | +8801710000128 |
 | 85      | Karim Haque       | karim.haque@mail.com       | FOOTBALL_FAN   | +8801710000180 |
+```
 
+### Query 03:
 
--- Query 03:
-
+```sql
 SELECT
 	booking_id,
 	user_id,
@@ -73,16 +74,20 @@ FROM
 	bookings
 WHERE
 	payment_status IS NULL;
+```
 
--- Sample Output:
+### Sample Output:
 
+```text
 | booking_id | user_id | match_id | systematic_status |
 | ---------- | ------- | -------- | ----------------- |
 | 18         | 71      | 38       | ACTION REQUIRED   |
 | 31         | 39      | 46       | ACTION REQUIRED   |
+```
 
+### Query 04:
 
--- Query 04:
+```sql
 SELECT
 	b.booking_id,
 	u.full_name,
@@ -134,9 +139,9 @@ FROM
 | 33         | Lucas James     | PSG vs Lille                       | 140.00     |
 ```
 
-```sql
--- Query 05:
+### Query 05:
 
+```sql
 SELECT
 	u.user_id,
 	u.full_name,
@@ -146,102 +151,105 @@ FROM
 	LEFT JOIN bookings b ON u.user_id = b.user_id
 order by
 	u.user_id;
+```
 
--- Sample Output:
+### Sample Output:
 
-| user_id | full_name         | booking_id |
-| ------- | ----------------- | ---------- |
-| 1       | Jonathan Miller   |            |
-| 2       | Michael Carter    | 20         |
-| 3       | David Reynolds    | 6          |
-| 4       | Christopher Haque |            |
-| 5       | Andrew Thompson   | 12         |
-| 6       | Jason Walker      | 30         |
-| 7       | Ethan Brooks      |            |
-| 8       | Tanvir Ahmed      |            |
-| 9       | Daniel Cooper     | 15         |
-| 10      | Matthew Turner    |            |
-| 11      | Joshua Bennett    | 28         |
-| 12      | James Foster      | 2          |
-| 12      | James Foster      | 1          |
-| 13      | Benjamin Ross     |            |
-| 14      | Alexander Reed    |            |
-| 15      | Samuel Price      | 23         |
-| 16      | Noah Murphy       |            |
-| 17      | Liam Hughes       |            |
-| 18      | Jack Kelly        | 10         |
-| 19      | Oliver Ward       |            |
-| 20      | Henry Cox         |            |
-| 21      | Lucas James       | 33         |
-| 22      | Elijah Scott      |            |
-| 23      | Ahmed Reza        | 17         |
-| 24      | Logan Baker       |            |
-| 25      | Sebastian Adams   |            |
-| 26      | George Hill       |            |
-| 27      | Edward Clark      | 26         |
-| 28      | Thomas Lewis      |            |
-| 29      | Nathan Allen      | 8          |
-| 30      | Caleb Young       |            |
-| 31      | Isaac King        |            |
-| 32      | Aaron Wright      |            |
-| 33      | Tanvir Tareq      | 5          |
-| 33      | Tanvir Tareq      | 3          |
-| 34      | Connor Hall       | 19         |
-| 35      | Adam Carter       |            |
-| 36      | Brian Murphy      |            |
-| 37      | Eric Rogers       |            |
-| 38      | Kyle Morgan       |            |
-| 39      | Jordan Perry      | 31         |
-| 40      | Justin Howard     |            |
-| 41      | Tyler Cox         | 14         |
-| 42      | Brandon Ward      |            |
-| 43      | Kevin Bennett     |            |
-| 44      | Mark Foster       |            |
-| 45      | Paul Reed         |            |
-| 46      | Scott Mitchell    |            |
-| 47      | Sean Brooks       | 4          |
-| 48      | Greg Anderson     |            |
-| 49      | Harry Collins     | 24         |
-| 50      | Owen Stewart      |            |
-| 51      | Evan Morris       |            |
-| 52      | Ian Rogers        | 13         |
-| 53      | Patrick Murphy    | 29         |
-| 54      | Cameron Bell      |            |
-| 55      | Dylan Ward        |            |
-| 56      | Ryan Foster       |            |
-| 57      | Ethan Carter      |            |
-| 58      | Noah Bennett      | 21         |
-| 59      | Liam Brooks       |            |
-| 60      | James Walker      | 16         |
-| 61      | Benjamin Scott    |            |
-| 62      | Lucas Reed        |            |
-| 63      | Henry Adams       |            |
-| 64      | Alexander King    | 9          |
-| 65      | Matthew Hill      |            |
-| 66      | Joshua Allen      | 25         |
-| 67      | Daniel Young      |            |
-| 68      | Jack Lewis        |            |
-| 69      | Samuel Clark      |            |
-| 70      | Elijah Morgan     |            |
-| 71      | Aiden James       | 18         |
-| 72      | Logan Wright      |            |
-| 73      | Sebastian Murphy  |            |
-| 74      | George Cox        | 32         |
-| 75      | Edward Perry      |            |
-| 76      | Thomas Howard     |            |
-| 77      | Nathan Hall       | 11         |
-| 78      | Caleb Cox         |            |
-| 79      | Isaac Ward        |            |
-| 80      | Aaron Bell        | 27         |
-| 81      | Luke Morgan       |            |
-| 82      | Connor Baker      |            |
-| 83      | Adam Rogers       | 22         |
-| 84      | Brian Perry       |            |
-| 85      | Karim Haque       | 7          |
+```text
+| user_id | full_name         | possible_bookings |
+| ------- | ----------------- | ----------------- |
+| 1       | Jonathan Miller   | NULL              |
+| 2       | Michael Carter    | 20                |
+| 3       | David Reynolds    | 6                 |
+| 4       | Christopher Haque | NULL              |
+| 5       | Andrew Thompson   | 12                |
+| 6       | Jason Walker      | 30                |
+| 7       | Ethan Brooks      | NULL              |
+| 8       | Tanvir Ahmed      | NULL              |
+| 9       | Daniel Cooper     | 15                |
+| 10      | Matthew Turner    | NULL              |
+| 11      | Joshua Bennett    | 28                |
+| 12      | James Foster      | 2                 |
+| 12      | James Foster      | 1                 |
+| 13      | Benjamin Ross     | NULL              |
+| 14      | Alexander Reed    | NULL              |
+| 15      | Samuel Price      | 23                |
+| 16      | Noah Murphy       | NULL              |
+| 17      | Liam Hughes       | NULL              |
+| 18      | Jack Kelly        | 10                |
+| 19      | Oliver Ward       | NULL              |
+| 20      | Henry Cox         | NULL              |
+| 21      | Lucas James       | 33                |
+| 22      | Elijah Scott      | NULL              |
+| 23      | Ahmed Reza        | 17                |
+| 24      | Logan Baker       | NULL              |
+| 25      | Sebastian Adams   | NULL              |
+| 26      | George Hill       | NULL              |
+| 27      | Edward Clark      | 26                |
+| 28      | Thomas Lewis      | NULL              |
+| 29      | Nathan Allen      | 8                 |
+| 30      | Caleb Young       | NULL              |
+| 31      | Isaac King        | NULL              |
+| 32      | Aaron Wright      | NULL              |
+| 33      | Tanvir Tareq      | 5                 |
+| 33      | Tanvir Tareq      | 3                 |
+| 34      | Connor Hall       | 19                |
+| 35      | Adam Carter       | NULL              |
+| 36      | Brian Murphy      | NULL              |
+| 37      | Eric Rogers       | NULL              |
+| 38      | Kyle Morgan       | NULL              |
+| 39      | Jordan Perry      | 31                |
+| 40      | Justin Howard     | NULL              |
+| 41      | Tyler Cox         | 14                |
+| 42      | Brandon Ward      | NULL              |
+| 43      | Kevin Bennett     | NULL              |
+| 44      | Mark Foster       | NULL              |
+| 45      | Paul Reed         | NULL              |
+| 46      | Scott Mitchell    | NULL              |
+| 47      | Sean Brooks       | 4                 |
+| 48      | Greg Anderson     | NULL              |
+| 49      | Harry Collins     | 24                |
+| 50      | Owen Stewart      | NULL              |
+| 51      | Evan Morris       | NULL              |
+| 52      | Ian Rogers        | 13                |
+| 53      | Patrick Murphy    | 29                |
+| 54      | Cameron Bell      | NULL              |
+| 55      | Dylan Ward        | NULL              |
+| 56      | Ryan Foster       | NULL              |
+| 57      | Ethan Carter      | NULL              |
+| 58      | Noah Bennett      | 21                |
+| 59      | Liam Brooks       | NULL              |
+| 60      | James Walker      | 16                |
+| 61      | Benjamin Scott    | NULL              |
+| 62      | Lucas Reed        | NULL              |
+| 63      | Henry Adams       | NULL              |
+| 64      | Alexander King    | 9                 |
+| 65      | Matthew Hill      | NULL              |
+| 66      | Joshua Allen      | 25                |
+| 67      | Daniel Young      | NULL              |
+| 68      | Jack Lewis        | NULL              |
+| 69      | Samuel Clark      | NULL              |
+| 70      | Elijah Morgan     | NULL              |
+| 71      | Aiden James       | 18                |
+| 72      | Logan Wright      | NULL              |
+| 73      | Sebastian Murphy  | NULL              |
+| 74      | George Cox        | 32                |
+| 75      | Edward Perry      | NULL              |
+| 76      | Thomas Howard     | NULL              |
+| 77      | Nathan Hall       | 11                |
+| 78      | Caleb Cox         | NULL              |
+| 79      | Isaac Ward        | NULL              |
+| 80      | Aaron Bell        | 27                |
+| 81      | Luke Morgan       | NULL              |
+| 82      | Connor Baker      | NULL              |
+| 83      | Adam Rogers       | 22                |
+| 84      | Brian Perry       | NULL              |
+| 85      | Karim Haque       | 7                 |
+```
 
+### Query 06:
 
--- Query 06:
-
+```sql
 SELECT
 	*
 from
@@ -253,9 +261,11 @@ where
 		from
 			bookings
 	);
+```
 
--- Sample Output:
+### Sample Output:
 
+```text
 | booking_id | user_id | match_id | seat_number | payment_status | total_cost |
 | ---------- | ------- | -------- | ----------- | -------------- | ---------- |
 | 1          | 12      | 5        | A-10        | CONFIRMED      | 150.00     |
@@ -272,9 +282,11 @@ where
 | 28         | 11      | 24       | E-05        | CONFIRMED      | 130.00     |
 | 29         | 53      | 12       | A-20        | CONFIRMED      | 125.00     |
 | 33         | 21      | 31       |             | CONFIRMED      | 140.00     |
+```
 
--- Query 07:
+### Query 07:
 
+```sql
 SELECT
 	*
 from
@@ -285,30 +297,31 @@ limit
 	2
 offset
 	1;
+```
 
--- Sample Output:
+### Sample Output:
 
+```text
 | match_id | fixture                      | tournament_category | base_ticket_price | match_status |
 | -------- | ---------------------------- | ------------------- | ----------------- | ------------ |
 | 41       | Real Madrid vs Bayern Munich | Champions League    | 170.00            | SELLING_FAST |
 | 47       | Barcelona vs Bayern Munich   | Champions League    | 165.00            | AVAILABLE    |
 
-
 ```
 
-## Part 03: Interview Prep:
+## Part 03: Interview Q/A:
 
 Questions answered:
 
-- Question 1: What role does a Foreign Key play in the Bookings table, and how does it safeguard against entering a ticket sale for a match that doesn't exist?
+- **Question 1:** What role does a Foreign Key play in the Bookings table, and how does it safeguard against entering a ticket sale for a match that doesn't exist?
 
 - answer: https://www.loom.com/share/3680f44a879d445682a77697c5eca8de
 
-- Question 2: Why are we unable to use an aggregate function like COUNT(booking_id) inside a standard WHERE clause to filter match rows? How does HAVING solve this?
+- **Question 2:** Why are we unable to use an aggregate function like COUNT(booking_id) inside a standard WHERE clause to filter match rows? How does HAVING solve this?
 
 - answer: https://www.loom.com/share/4f5cc6eb7b234cd68dadd8324197a83b
 
-- Question 4: Imagine a newly registered fan who hasn't bought any match tickets yet. If you run a LEFT JOIN linking the Users table (left) to the Bookings table (right), what will the resulting rows look like for that specific fan?
+- **Question 4:** Imagine a newly registered fan who hasn't bought any match tickets yet. If you run a LEFT JOIN linking the Users table (left) to the Bookings table (right), what will the resulting rows look like for that specific fan?
 
 - answer: https://www.loom.com/share/69d4525858854ca598bf549dd95334b8
 
