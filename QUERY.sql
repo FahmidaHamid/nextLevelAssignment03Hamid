@@ -265,6 +265,9 @@ WHERE
 	tournament_category = 'Champions League'
 	AND match_status = 'AVAILABLE';
 
+
+
+
 -- testing a similar query: SELECT * from matches where tournament_category= 'Champions League' and match_status = 'AVAILABLE';
 -- ====================================================================================================================
 -- Query 2: Search for all users whose full names start with 'Tanvir' or contain the phrase 'Haque' (case-insensitive).
@@ -314,7 +317,7 @@ FROM
 SELECT
 	u.user_id,
 	u.full_name,
-	b.booking_id
+	coalesce(b.booking_id::text, 'NULL') as possible_bookings
 FROM
 	users u
 	LEFT JOIN bookings b ON u.user_id = b.user_id
@@ -325,8 +328,13 @@ order by
 -- Query 6: Find all ticket bookings where the total cost is strictly higher than 
 -- the average cost of all ticket bookings.
 -- ===============================================================================================================
+
+-- testing: SELECT avg(total_cost) from bookings;
+
 SELECT
-	*
+	b.booking_id, 
+    b.match_id,
+    b.total_cost
 from
 	bookings b
 where
@@ -342,7 +350,9 @@ where
 -- skipping the absolute highest premium match.
 -- ================================================================================================================
 SELECT
-	*
+	m.match_id,
+    m.fixture,
+    m.base_ticket_price
 from
 	matches m
 order by
