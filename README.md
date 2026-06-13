@@ -10,7 +10,7 @@ In this work, we practice on several core backend skills: creating ER-Diagrams u
 
 ## Part 02: SQL Queries & Expected Sample Output:
 
-- [View SQL Query](./QUERY.sql)
+- [**View SQL Query File**](./QUERY.sql)
 
 ```sql
 
