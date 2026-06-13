@@ -14,13 +14,27 @@ In this work, we practice on several core backend skills: creating ER-Diagrams u
 
 ```sql
 
+-- query 01:
+
+SELECT
+	match_id,
+	fixture,
+	base_ticket_price
+FROM
+	matches
+WHERE
+	tournament_category = 'Champions League'
+	AND match_status = 'AVAILABLE';
+
+-- sample outcome:
+-------------------------------------------------------------
 | match_id | fixture                    | base_ticket_price |
 | -------- | -------------------------- | ----------------- |
 | 1        | Real Madrid vs Barcelona   | 150.00            |
 | 3        | Bayern Munich vs PSG       | 130.00            |
 | 47       | Barcelona vs Bayern Munich | 165.00            |
 | 49       | Real Madrid vs PSG         | 175.00            |
-
+-------------------------------------------------------------
 ```
 
 ## Part 03: Interview Prep:
