@@ -25,8 +25,11 @@ FROM
 WHERE
 	tournament_category = 'Champions League'
 	AND match_status = 'AVAILABLE';
+```
 
 -- Sample Outcome:
+
+```text
 -------------------------------------------------------------
 | match_id | fixture                    | base_ticket_price |
 | -------- | -------------------------- | ----------------- |
@@ -35,7 +38,9 @@ WHERE
 | 47       | Barcelona vs Bayern Munich | 165.00            |
 | 49       | Real Madrid vs PSG         | 175.00            |
 -------------------------------------------------------------
+```
 
+```sql
 -- Query 02
 
 SELECT
