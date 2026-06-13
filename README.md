@@ -151,7 +151,7 @@ SELECT
 FROM
 	users u
 	LEFT JOIN bookings b ON u.user_id = b.user_id
-WHERE u.role = 'FOOTBALL_FAN'
+-- WHERE u.role = 'FOOTBALL_FAN'
 order by
 	u.user_id;
 ```
@@ -159,90 +159,95 @@ order by
 ### Sample Output:
 
 ```text
-| user_id | full_name        | possible_bookings |
-| ------- | ---------------- | ----------------- |
-| 6       | Jason Walker     | 30                |
-| 7       | Ethan Brooks     | NULL              |
-| 8       | Tanvir Ahmed     | NULL              |
-| 9       | Daniel Cooper    | 15                |
-| 10      | Matthew Turner   | NULL              |
-| 11      | Joshua Bennett   | 28                |
-| 12      | James Foster     | 1                 |
-| 12      | James Foster     | 2                 |
-| 13      | Benjamin Ross    | NULL              |
-| 14      | Alexander Reed   | NULL              |
-| 15      | Samuel Price     | 23                |
-| 16      | Noah Murphy      | NULL              |
-| 17      | Liam Hughes      | NULL              |
-| 18      | Jack Kelly       | 10                |
-| 19      | Oliver Ward      | NULL              |
-| 20      | Henry Cox        | NULL              |
-| 21      | Lucas James      | 33                |
-| 22      | Elijah Scott     | NULL              |
-| 23      | Ahmed Reza       | 17                |
-| 24      | Logan Baker      | NULL              |
-| 25      | Sebastian Adams  | NULL              |
-| 26      | George Hill      | NULL              |
-| 27      | Edward Clark     | 26                |
-| 28      | Thomas Lewis     | NULL              |
-| 29      | Nathan Allen     | 8                 |
-| 30      | Caleb Young      | NULL              |
-| 31      | Isaac King       | NULL              |
-| 32      | Aaron Wright     | NULL              |
-| 33      | Tanvir Tareq     | 5                 |
-| 33      | Tanvir Tareq     | 3                 |
-| 34      | Connor Hall      | 19                |
-| 35      | Adam Carter      | NULL              |
-| 36      | Brian Murphy     | NULL              |
-| 37      | Eric Rogers      | NULL              |
-| 38      | Kyle Morgan      | NULL              |
-| 39      | Jordan Perry     | 31                |
-| 40      | Justin Howard    | NULL              |
-| 41      | Tyler Cox        | 14                |
-| 42      | Brandon Ward     | NULL              |
-| 43      | Kevin Bennett    | NULL              |
-| 44      | Mark Foster      | NULL              |
-| 45      | Paul Reed        | NULL              |
-| 46      | Scott Mitchell   | NULL              |
-| 47      | Sean Brooks      | 4                 |
-| 48      | Greg Anderson    | NULL              |
-| 49      | Harry Collins    | 24                |
-| 50      | Owen Stewart     | NULL              |
-| 51      | Evan Morris      | NULL              |
-| 52      | Ian Rogers       | 13                |
-| 53      | Patrick Murphy   | 29                |
-| 54      | Cameron Bell     | NULL              |
-| 55      | Dylan Ward       | NULL              |
-| 56      | Ryan Foster      | NULL              |
-| 57      | Ethan Carter     | NULL              |
-| 58      | Noah Bennett     | 21                |
-| 59      | Liam Brooks      | NULL              |
-| 60      | James Walker     | 16                |
-| 61      | Benjamin Scott   | NULL              |
-| 62      | Lucas Reed       | NULL              |
-| 63      | Henry Adams      | NULL              |
-| 64      | Alexander King   | 9                 |
-| 65      | Matthew Hill     | NULL              |
-| 66      | Joshua Allen     | 25                |
-| 67      | Daniel Young     | NULL              |
-| 68      | Jack Lewis       | NULL              |
-| 69      | Samuel Clark     | NULL              |
-| 70      | Elijah Morgan    | NULL              |
-| 71      | Aiden James      | 18                |
-| 72      | Logan Wright     | NULL              |
-| 73      | Sebastian Murphy | NULL              |
-| 74      | George Cox       | 32                |
-| 75      | Edward Perry     | NULL              |
-| 76      | Thomas Howard    | NULL              |
-| 77      | Nathan Hall      | 11                |
-| 78      | Caleb Cox        | NULL              |
-| 79      | Isaac Ward       | NULL              |
-| 80      | Aaron Bell       | 27                |
-| 81      | Luke Morgan      | NULL              |
-| 82      | Connor Baker     | NULL              |
-| 83      | Adam Rogers      | 22                |
-| 84      | Brian Perry      | NULL              |
-| 85      | Karim Haque      | 7                 |
+| user_id | full_name         | possible_bookings |
+| ------- | ----------------- | ----------------- |
+| 1       | Jonathan Miller   | NULL              |
+| 2       | Michael Carter    | 20                |
+| 3       | David Reynolds    | 6                 |
+| 4       | Christopher Haque | NULL              |
+| 5       | Andrew Thompson   | 12                |
+| 6       | Jason Walker      | 30                |
+| 7       | Ethan Brooks      | NULL              |
+| 8       | Tanvir Ahmed      | NULL              |
+| 9       | Daniel Cooper     | 15                |
+| 10      | Matthew Turner    | NULL              |
+| 11      | Joshua Bennett    | 28                |
+| 12      | James Foster      | 2                 |
+| 12      | James Foster      | 1                 |
+| 13      | Benjamin Ross     | NULL              |
+| 14      | Alexander Reed    | NULL              |
+| 15      | Samuel Price      | 23                |
+| 16      | Noah Murphy       | NULL              |
+| 17      | Liam Hughes       | NULL              |
+| 18      | Jack Kelly        | 10                |
+| 19      | Oliver Ward       | NULL              |
+| 20      | Henry Cox         | NULL              |
+| 21      | Lucas James       | 33                |
+| 22      | Elijah Scott      | NULL              |
+| 23      | Ahmed Reza        | 17                |
+| 24      | Logan Baker       | NULL              |
+| 25      | Sebastian Adams   | NULL              |
+| 26      | George Hill       | NULL              |
+| 27      | Edward Clark      | 26                |
+| 28      | Thomas Lewis      | NULL              |
+| 29      | Nathan Allen      | 8                 |
+| 30      | Caleb Young       | NULL              |
+| 31      | Isaac King        | NULL              |
+| 32      | Aaron Wright      | NULL              |
+| 33      | Tanvir Tareq      | 5                 |
+| 33      | Tanvir Tareq      | 3                 |
+| 34      | Connor Hall       | 19                |
+| 35      | Adam Carter       | NULL              |
+| 36      | Brian Murphy      | NULL              |
+| 37      | Eric Rogers       | NULL              |
+| 38      | Kyle Morgan       | NULL              |
+| 39      | Jordan Perry      | 31                |
+| 40      | Justin Howard     | NULL              |
+| 41      | Tyler Cox         | 14                |
+| 42      | Brandon Ward      | NULL              |
+| 43      | Kevin Bennett     | NULL              |
+| 44      | Mark Foster       | NULL              |
+| 45      | Paul Reed         | NULL              |
+| 46      | Scott Mitchell    | NULL              |
+| 47      | Sean Brooks       | 4                 |
+| 48      | Greg Anderson     | NULL              |
+| 49      | Harry Collins     | 24                |
+| 50      | Owen Stewart      | NULL              |
+| 51      | Evan Morris       | NULL              |
+| 52      | Ian Rogers        | 13                |
+| 53      | Patrick Murphy    | 29                |
+| 54      | Cameron Bell      | NULL              |
+| 55      | Dylan Ward        | NULL              |
+| 56      | Ryan Foster       | NULL              |
+| 57      | Ethan Carter      | NULL              |
+| 58      | Noah Bennett      | 21                |
+| 59      | Liam Brooks       | NULL              |
+| 60      | James Walker      | 16                |
+| 61      | Benjamin Scott    | NULL              |
+| 62      | Lucas Reed        | NULL              |
+| 63      | Henry Adams       | NULL              |
+| 64      | Alexander King    | 9                 |
+| 65      | Matthew Hill      | NULL              |
+| 66      | Joshua Allen      | 25                |
+| 67      | Daniel Young      | NULL              |
+| 68      | Jack Lewis        | NULL              |
+| 69      | Samuel Clark      | NULL              |
+| 70      | Elijah Morgan     | NULL              |
+| 71      | Aiden James       | 18                |
+| 72      | Logan Wright      | NULL              |
+| 73      | Sebastian Murphy  | NULL              |
+| 74      | George Cox        | 32                |
+| 75      | Edward Perry      | NULL              |
+| 76      | Thomas Howard     | NULL              |
+| 77      | Nathan Hall       | 11                |
+| 78      | Caleb Cox         | NULL              |
+| 79      | Isaac Ward        | NULL              |
+| 80      | Aaron Bell        | 27                |
+| 81      | Luke Morgan       | NULL              |
+| 82      | Connor Baker      | NULL              |
+| 83      | Adam Rogers       | 22                |
+| 84      | Brian Perry       | NULL              |
+| 85      | Karim Haque       | 7                 |
 ```
 
 ### Query 06:

@@ -63,13 +63,13 @@ CREATE TABLE Bookings (
 INSERT INTO
 	Users (full_name, email, role, phone_number)
 VALUES
-	-- Ticket Managers (5%)
+	-- Ticket Managers (5 managers)
 	('Jonathan Miller', 'jonathan.miller@mail.com', 'TICKET_MANAGER', '+8801710000001'),
 	('Michael Carter', 'michael.carter@mail.com', 'TICKET_MANAGER', '+8801710000002'),
 	('David Reynolds', 'david.reynolds@mail.com', 'TICKET_MANAGER', '+8801710000003'),
 	('Christopher Haque', 'christopher.haque@mail.com', 'TICKET_MANAGER', '+8801710000004'),
 	('Andrew Thompson', 'andrew.thompson@mail.com', 'TICKET_MANAGER', '+8801710000005'),
-	-- Football Fans (80 users)
+	-- Football Fans (80 fan users)
 	('Jason Walker', 'jason.walker@mail.com', 'FOOTBALL_FAN', '+8801710000101'),
 	('Ethan Brooks', 'ethan.brooks@mail.com', 'FOOTBALL_FAN', '+8801710000102'),
 	('Tanvir Ahmed', 'tanvirA@mail.com', 'FOOTBALL_FAN', '+8801710000103'),
@@ -321,6 +321,7 @@ SELECT
 FROM
 	users u
 	LEFT JOIN bookings b ON u.user_id = b.user_id
+-- WHERE u.role = 'FOOTBALL_FAN'
 order by
 	u.user_id;
 
